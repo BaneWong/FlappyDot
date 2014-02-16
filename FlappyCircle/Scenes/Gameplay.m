@@ -9,12 +9,14 @@
 #import "Gameplay.h"
 #import "Player.h"
 #import "Ground.h"
+#import "Obstacle.h"
 
 @implementation Gameplay {
   SKSpriteNode *_player;
 }
 
 #define IMPULSE_POWER 400
+#define OBSTACLE_SPEED 3
 #define GRAVITY CGVectorMake(0, -8)
 
 
@@ -30,18 +32,26 @@
     
     myLabel.fontSize = 30;
     myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 400);
-    
     [self setupPhysics];
     
     [self addChild:myLabel];
+    
     _player = [Player playerInstance];
     _player.position = CGPointMake(100, 200);
     [self addChild:_player];
     
-    Ground *floor = [[Ground alloc] initWithSize:CGSizeMake(self.size.width, 20)];
-    [self addChild:floor];
+    
+    [self spawnObstacles];
   }
   return self;
+}
+
+- (void) spawnObstacles {
+  Ground *floor = [[Ground alloc] initWithSize:CGSizeMake(self.size.width, 20)];
+  [self addChild:floor];
+  
+  Obstacle *obstacle = [[Obstacle alloc] initWithSceneSize:self.size];
+  [self addChild:obstacle];
 }
 
 - (void) setupPhysics {
@@ -53,9 +63,9 @@
   uint32_t collision = (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask);
   
   if(collision == (FCPhysicsCategoryGround | FCPhysicsCategoryPlayer)) {
-    NSLog(@"playa hita granda");
+//    NSLog(@"playa hita granda");
   } else if(collision == (FCPhysicsCategoryObstacle | FCPhysicsCategoryPlayer)) {
-    NSLog(@"playa hita obstacla");
+//    NSLog(@"playa hita obstacla");
   }
 }
 
@@ -64,7 +74,13 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-  
+  [self enumerateChildNodesWithName:@"Obstacle" usingBlock:^(SKNode *node, BOOL *stop) {
+    if(node.position.x > -225){ //TODO delete hardcode!!
+      node.position = CGPointMake(node.position.x - OBSTACLE_SPEED, node.position.y);
+    } else {
+      node.position = CGPointMake(330, node.position.y);
+    }
+  }];
 }
 
 @end

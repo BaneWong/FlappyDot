@@ -8,6 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface Obstacle : SKSpriteNode
+@interface Obstacle : SKNode
+
+- (id)initWithSceneSize:(CGSize)size;
 
 @end

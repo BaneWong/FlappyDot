@@ -39,6 +39,7 @@
 - (void) setupPhysics {
   self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
   self.physicsBody.categoryBitMask = FCPhysicsCategoryPlayer;
+  self.physicsBody.allowsRotation = NO;
   
 }
 
