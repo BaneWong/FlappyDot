@@ -9,9 +9,12 @@
 #import "Obstacle.h"
 #import "Gameplay.h"
 
-#define GAP 50
-#define INITIAL_X 130
+#define GAP 2
+#define MIN_GAP_Y 50
+#define MAX_GAP_Y (_gameplay.size.height - 50)
 #define WIDTH 50
+#define HEIGHT 100
+
 
 @implementation Obstacle {
   CGSize _gameplaySize;
@@ -23,7 +26,7 @@
   self = [super init];
   if (self) {
     _gameplaySize = size;
-    self.position = CGPointMake(INITIAL_X, 10);
+    self.position = CGPointMake(120, 10);
     self.name = @"Obstacle";
     [self setupComponents];
   }
@@ -31,17 +34,18 @@
 }
 
 - (void) setupComponents {
+  int initialRand = 200;
   _topComponent = [SKSpriteNode node];
-  _topComponent.size = CGSizeMake(WIDTH, 100);
+  _topComponent.size = CGSizeMake(WIDTH, HEIGHT);
   _topComponent.color = [SKColor greenColor];
-  _topComponent.position = CGPointMake(INITIAL_X, _gameplaySize.height - _topComponent.size.height/2);
+  _topComponent.position = CGPointMake(0, _gameplaySize.height - initialRand);
   [self setupComponentPhysics:_topComponent];
   [self addChild:_topComponent];
   
   _bottomComponent = [SKSpriteNode node];
-  _bottomComponent.size = CGSizeMake(WIDTH, 100);
+  _bottomComponent.size = CGSizeMake(WIDTH, HEIGHT);
   _bottomComponent.color = [SKColor blackColor];
-  _bottomComponent.position = CGPointMake(INITIAL_X, 0);
+  _bottomComponent.position = CGPointMake(0, _topComponent.position.y - HEIGHT - GAP);
   [self setupComponentPhysics:_bottomComponent];
   [self addChild:_bottomComponent];
   
@@ -52,6 +56,10 @@
   compenent.physicsBody.categoryBitMask = FCPhysicsCategoryObstacle;
   compenent.physicsBody.dynamic = NO;
   compenent.physicsBody.contactTestBitMask = FCPhysicsCategoryPlayer;
+  
+}
+
+- (void) changeComponentsSize {
   
 }
 

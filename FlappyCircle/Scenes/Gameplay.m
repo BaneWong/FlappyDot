@@ -75,7 +75,7 @@
 
 -(void)update:(CFTimeInterval)currentTime {
   [self enumerateChildNodesWithName:@"Obstacle" usingBlock:^(SKNode *node, BOOL *stop) {
-    if(node.position.x > -225){ //TODO delete hardcode!!
+    if(node.position.x > -25){ //TODO delete hardcode!!
       node.position = CGPointMake(node.position.x - OBSTACLE_SPEED, node.position.y);
     } else {
       node.position = CGPointMake(330, node.position.y);

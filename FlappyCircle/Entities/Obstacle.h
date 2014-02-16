@@ -11,5 +11,6 @@
 @interface Obstacle : SKNode
 
 - (id)initWithSceneSize:(CGSize)size;
+- (void) changeComponentsSize;
 
 @end
