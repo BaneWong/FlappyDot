@@ -16,7 +16,6 @@
 		6EA0E2F418B16110007A90A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E2F318B16110007A90A3 /* AppDelegate.m */; };
 		6EA0E2F718B16110007A90A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E2F518B16110007A90A3 /* Main.storyboard */; };
 		6EA0E2FA18B16110007A90A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E2F918B16110007A90A3 /* ViewController.m */; };
-		6EA0E2FF18B16110007A90A3 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E2FE18B16110007A90A3 /* Spaceship.png */; };
 		6EA0E30118B16110007A90A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E30018B16110007A90A3 /* Images.xcassets */; };
 		6EA0E30818B16110007A90A3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E30718B16110007A90A3 /* XCTest.framework */; };
 		6EA0E30918B16110007A90A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E118B16110007A90A3 /* Foundation.framework */; };
@@ -29,6 +28,8 @@
 		6EA0E32F18B16D70007A90A3 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E32E18B16D70007A90A3 /* GameOver.m */; };
 		6EA0E33218B16D91007A90A3 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33118B16D91007A90A3 /* Player.m */; };
 		6EA0E33518B16DA1007A90A3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33418B16DA1007A90A3 /* Obstacle.m */; };
+		6EA0E33818B17037007A90A3 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E33718B17037007A90A3 /* circle.png */; };
+		6EA0E33B18B1712E007A90A3 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33A18B1712E007A90A3 /* Ground.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 		6EA0E2F618B16110007A90A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6EA0E2F818B16110007A90A3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6EA0E2F918B16110007A90A3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6EA0E2FE18B16110007A90A3 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		6EA0E30018B16110007A90A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6EA0E30618B16110007A90A3 /* FlappyCircleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyCircleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA0E30718B16110007A90A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -74,6 +74,9 @@
 		6EA0E33118B16D91007A90A3 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Entities/Player.m; sourceTree = "<group>"; };
 		6EA0E33318B16DA1007A90A3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Entities/Obstacle.h; sourceTree = "<group>"; };
 		6EA0E33418B16DA1007A90A3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Entities/Obstacle.m; sourceTree = "<group>"; };
+		6EA0E33718B17037007A90A3 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		6EA0E33918B1712E007A90A3 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ground.h; path = Entities/Ground.h; sourceTree = "<group>"; };
+		6EA0E33A18B1712E007A90A3 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ground.m; path = Entities/Ground.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +146,6 @@
 				6EA0E2F518B16110007A90A3 /* Main.storyboard */,
 				6EA0E2F818B16110007A90A3 /* ViewController.h */,
 				6EA0E2F918B16110007A90A3 /* ViewController.m */,
-				6EA0E2FE18B16110007A90A3 /* Spaceship.png */,
 				6EA0E30018B16110007A90A3 /* Images.xcassets */,
 				6EA0E2EA18B16110007A90A3 /* Supporting Files */,
 			);
@@ -182,16 +184,18 @@
 		6EA0E31D18B164FD007A90A3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0E31E18B1650A007A90A3 /* fonts */,
+				6EA0E33618B17021007A90A3 /* Images */,
+				6EA0E31E18B1650A007A90A3 /* Fonts */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		6EA0E31E18B1650A007A90A3 /* fonts */ = {
+		6EA0E31E18B1650A007A90A3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				6EA0E32818B16D00007A90A3 /* Minecraftia.ttf */,
 			);
+			name = Fonts;
 			path = fonts;
 			sourceTree = "<group>";
 		};
@@ -202,6 +206,8 @@
 				6EA0E33118B16D91007A90A3 /* Player.m */,
 				6EA0E33318B16DA1007A90A3 /* Obstacle.h */,
 				6EA0E33418B16DA1007A90A3 /* Obstacle.m */,
+				6EA0E33918B1712E007A90A3 /* Ground.h */,
+				6EA0E33A18B1712E007A90A3 /* Ground.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -217,6 +223,14 @@
 				6EA0E32E18B16D70007A90A3 /* GameOver.m */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		6EA0E33618B17021007A90A3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6EA0E33718B17037007A90A3 /* circle.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +311,7 @@
 			files = (
 				6EA0E2EE18B16110007A90A3 /* InfoPlist.strings in Resources */,
 				6EA0E30118B16110007A90A3 /* Images.xcassets in Resources */,
-				6EA0E2FF18B16110007A90A3 /* Spaceship.png in Resources */,
+				6EA0E33818B17037007A90A3 /* circle.png in Resources */,
 				6EA0E32918B16D00007A90A3 /* Minecraftia.ttf in Resources */,
 				6EA0E2F718B16110007A90A3 /* Main.storyboard in Resources */,
 			);
@@ -321,6 +335,7 @@
 				6EA0E32C18B16D5E007A90A3 /* MainMenu.m in Sources */,
 				6EA0E32618B16B30007A90A3 /* Gameplay.m in Sources */,
 				6EA0E33518B16DA1007A90A3 /* Obstacle.m in Sources */,
+				6EA0E33B18B1712E007A90A3 /* Ground.m in Sources */,
 				6EA0E2FA18B16110007A90A3 /* ViewController.m in Sources */,
 				6EA0E32F18B16D70007A90A3 /* GameOver.m in Sources */,
 				6EA0E2F418B16110007A90A3 /* AppDelegate.m in Sources */,

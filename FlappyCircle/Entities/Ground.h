@@ -1,5 +1,5 @@
 //
-//  Player.h
+//  Ground.h
 //  FlappyCircle
 //
 //  Created by Pablo on 16/02/14.
@@ -8,8 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface Player : SKSpriteNode
+@interface Ground : SKSpriteNode
 
-+ (Player *) playerInstance;
-
+- (id)initWithSize:(CGSize)size;
+  
 @end
