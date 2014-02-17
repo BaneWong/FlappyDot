@@ -10,7 +10,8 @@
 
 @interface Obstacle : SKNode
 
-- (id)initWithSceneSize:(CGSize)size;
-- (void) changeComponentsSize;
+- (id)initWithPosition:(CGPoint)position;
+- (void) changeComponentsPosition;
+
 
 @end

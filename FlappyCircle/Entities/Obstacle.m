@@ -14,23 +14,17 @@
 #define MAX_GAP_Y_CORD 160
 #define WIDTH 50
 #define HEIGHT GAMEPLAY_HEIGHT
-//#define
 
-static int FCRandomInt(int min, int max) {
-  return min + arc4random() % (max - min + 1);
-}
 
 @implementation Obstacle {
-  CGSize _gameplaySize;
   SKSpriteNode *_topComponent;
   SKSpriteNode *_bottomComponent;
 }
 
-- (id)initWithSceneSize:(CGSize) size{
+- (id)initWithPosition:(CGPoint) position{
   self = [super init];
   if (self) {
-    _gameplaySize = size;
-    self.position = CGPointMake(120, 10);
+    self.position = position;
     self.name = @"Obstacle";
     [self setupComponents];
   }
@@ -38,22 +32,19 @@ static int FCRandomInt(int min, int max) {
 }
 
 - (void) setupComponents {
-  int initialOffset = FCRandomInt(MIN_GAP_Y_CORD, MAX_GAP_Y_CORD);
-  NSLog(@"%f", _gameplaySize.height/3);
   _topComponent = [SKSpriteNode node];
   _topComponent.size = CGSizeMake(WIDTH, HEIGHT);
-  _topComponent.color = [SKColor greenColor];
-  _topComponent.position = CGPointMake(0, GAMEPLAY_HEIGHT + initialOffset);
+  _topComponent.color = [SKColor blackColor];
   [self setupComponentPhysics:_topComponent];
-  [self addChild:_topComponent];
   
   _bottomComponent = [SKSpriteNode node];
   _bottomComponent.size = CGSizeMake(WIDTH, HEIGHT);
   _bottomComponent.color = [SKColor blackColor];
-  _bottomComponent.position = CGPointMake(0, _topComponent.position.y - HEIGHT - GAP_HEIGHT);
   [self setupComponentPhysics:_bottomComponent];
-  [self addChild:_bottomComponent];
   
+  [self changeComponentsPosition];
+  [self addChild:_topComponent];
+  [self addChild:_bottomComponent];
 }
 
 - (void) setupComponentPhysics:(SKSpriteNode *)compenent {
@@ -61,11 +52,12 @@ static int FCRandomInt(int min, int max) {
   compenent.physicsBody.categoryBitMask = FCPhysicsCategoryObstacle;
   compenent.physicsBody.dynamic = NO;
   compenent.physicsBody.contactTestBitMask = FCPhysicsCategoryPlayer;
-  
 }
 
-- (void) changeComponentsSize {
-  
+- (void) changeComponentsPosition {
+  int randomOffset = FCRandomInt(MIN_GAP_Y_CORD, MAX_GAP_Y_CORD);
+  _topComponent.position = CGPointMake(0, GAMEPLAY_HEIGHT + randomOffset);
+  _bottomComponent.position = CGPointMake(0, _topComponent.position.y - HEIGHT - GAP_HEIGHT);
 }
 
 @end

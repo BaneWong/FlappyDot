@@ -30,6 +30,7 @@
 		6EA0E33518B16DA1007A90A3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33418B16DA1007A90A3 /* Obstacle.m */; };
 		6EA0E33818B17037007A90A3 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E33718B17037007A90A3 /* circle.png */; };
 		6EA0E33B18B1712E007A90A3 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33A18B1712E007A90A3 /* Ground.m */; };
+		6EA0E33E18B1969A007A90A3 /* FCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33D18B1969A007A90A3 /* FCUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		6EA0E33718B17037007A90A3 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		6EA0E33918B1712E007A90A3 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ground.h; path = Entities/Ground.h; sourceTree = "<group>"; };
 		6EA0E33A18B1712E007A90A3 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ground.m; path = Entities/Ground.m; sourceTree = "<group>"; };
+		6EA0E33C18B1969A007A90A3 /* FCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCUtils.h; sourceTree = "<group>"; };
+		6EA0E33D18B1969A007A90A3 /* FCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 				6EA0E2F318B16110007A90A3 /* AppDelegate.m */,
 				6EA0E2F518B16110007A90A3 /* Main.storyboard */,
 				6EA0E2F818B16110007A90A3 /* ViewController.h */,
+				6EA0E33C18B1969A007A90A3 /* FCUtils.h */,
+				6EA0E33D18B1969A007A90A3 /* FCUtils.m */,
 				6EA0E2F918B16110007A90A3 /* ViewController.m */,
 				6EA0E30018B16110007A90A3 /* Images.xcassets */,
 				6EA0E2EA18B16110007A90A3 /* Supporting Files */,
@@ -334,6 +339,7 @@
 			files = (
 				6EA0E32C18B16D5E007A90A3 /* MainMenu.m in Sources */,
 				6EA0E32618B16B30007A90A3 /* Gameplay.m in Sources */,
+				6EA0E33E18B1969A007A90A3 /* FCUtils.m in Sources */,
 				6EA0E33518B16DA1007A90A3 /* Obstacle.m in Sources */,
 				6EA0E33B18B1712E007A90A3 /* Ground.m in Sources */,
 				6EA0E2FA18B16110007A90A3 /* ViewController.m in Sources */,

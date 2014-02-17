@@ -13,33 +13,38 @@
 
 @implementation Gameplay {
   SKSpriteNode *_player;
+  NSTimeInterval _lastUpdateTime;
+  NSTimeInterval _dt;
+  BOOL _gameStarted;
+  SKLabelNode *_instructionLabel;
+  SKLabelNode *_scoreLabel;
 }
 
-#define IMPULSE_POWER 400
-#define OBSTACLE_SPEED 3
-#define GRAVITY CGVectorMake(0, -8)
-
+#define IMPULSE_POWER 480
+#define OBSTACLE_SPEED -250
+#define GRAVITY CGVectorMake(0, -11)
+#define OBSTACLE_RESPAWN_BORDER -50
+#define OBSTACLE_RESPAWN_START 350
+#define GAP_BEETWEEN_OBSTACLES 200
 
 -(id)initWithSize:(CGSize)size {
   if (self = [super initWithSize:size]) {
-    /* Setup your scene here */
-    
     self.backgroundColor = [SKColor colorWithRed:1 green:1 blue:1 alpha:1.0];
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
     
-    myLabel.text = @"Flappy Circle";
-    myLabel.fontColor = [SKColor blackColor];
+    _instructionLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
+    _instructionLabel.text = @"Tap to start playing";
+    _instructionLabel.fontColor = [SKColor blackColor];
+    _instructionLabel.fontSize = 20;
+    _instructionLabel.position = CGPointMake(CGRectGetMidX(self.frame), 200);
     
-    myLabel.fontSize = 30;
-    myLabel.position = CGPointMake(CGRectGetMidX(self.frame), 400);
+    _gameStarted = NO;
     [self setupPhysics];
     
-    [self addChild:myLabel];
+    [self addChild:_instructionLabel];
     
     _player = [Player playerInstance];
-    _player.position = CGPointMake(100, 200);
+    _player.position = CGPointMake(100, 300);
     [self addChild:_player];
-    
     
     [self spawnObstacles];
   }
@@ -50,12 +55,16 @@
   Ground *floor = [[Ground alloc] initWithSize:CGSizeMake(self.size.width, 20)];
   [self addChild:floor];
   
-  Obstacle *obstacle = [[Obstacle alloc] initWithSceneSize:self.size];
-  [self addChild:obstacle];
+  
+  Obstacle *obstacle1 = [[Obstacle alloc] initWithPosition:CGPointMake(500, 0)];
+  Obstacle *obstacle2 = [[Obstacle alloc] initWithPosition:CGPointMake(obstacle1.position.x + GAP_BEETWEEN_OBSTACLES, 0)];
+  
+  [self addChild:obstacle1];
+  [self addChild:obstacle2];
 }
 
 - (void) setupPhysics {
-  self.physicsWorld.gravity = GRAVITY;
+  self.physicsWorld.gravity = CGVectorMake(0, 0);
   self.physicsWorld.contactDelegate = self;
 }
 
@@ -63,24 +72,52 @@
   uint32_t collision = (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask);
   
   if(collision == (FCPhysicsCategoryGround | FCPhysicsCategoryPlayer)) {
-//    NSLog(@"playa hita granda");
+    NSLog(@"playa hita granda");
   } else if(collision == (FCPhysicsCategoryObstacle | FCPhysicsCategoryPlayer)) {
-//    NSLog(@"playa hita obstacla");
+    NSLog(@"playa hita obstacla");
   }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  if(!_gameStarted) {
+    [self startGameplay];
+  }
+  
   _player.physicsBody.velocity = CGVectorMake(0, IMPULSE_POWER);
 }
 
+- (void) startGameplay {
+  _gameStarted = YES;
+  self.physicsWorld.gravity = GRAVITY;
+  [_instructionLabel runAction:[SKAction sequence:@[
+                            [SKAction fadeOutWithDuration:1],
+                            [SKAction removeFromParent]]]];
+}
+
 -(void)update:(CFTimeInterval)currentTime {
-  [self enumerateChildNodesWithName:@"Obstacle" usingBlock:^(SKNode *node, BOOL *stop) {
-    if(node.position.x > -25){ //TODO delete hardcode!!
-      node.position = CGPointMake(node.position.x - OBSTACLE_SPEED, node.position.y);
-    } else {
-      node.position = CGPointMake(330, node.position.y);
-    }
-  }];
+
+  if (_lastUpdateTime) {
+      _dt = currentTime - _lastUpdateTime;
+  } else {
+      _dt = 0;
+  }
+  _lastUpdateTime = currentTime;
+  
+  if(_gameStarted) {
+    [self enumerateChildNodesWithName:@"Obstacle" usingBlock:^(SKNode *node, BOOL *stop) {
+      if(node.position.x > OBSTACLE_RESPAWN_BORDER){
+        [self moveNode:node velocity:CGPointMake(OBSTACLE_SPEED, 0)];
+      } else {
+        [(Obstacle *)node changeComponentsPosition];
+        node.position = CGPointMake(OBSTACLE_RESPAWN_START, 0);
+      }
+    }];
+  }
+}
+
+-(void) moveNode:(SKNode *)node velocity:(CGPoint )velocity {
+  CGPoint amountToMove = FCMultiplyScalar(velocity, _dt);
+  node.position = CGPointMake(node.position.x + amountToMove.x, node.position.y + amountToMove.y);
 }
 
 @end
