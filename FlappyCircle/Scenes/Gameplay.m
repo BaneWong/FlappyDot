@@ -10,7 +10,6 @@
 #import "Player.h"
 #import "Ground.h"
 #import "Obstacle.h"
-#import "GameOver.h"
 
 @implementation Gameplay {
   SKSpriteNode *_player;
@@ -151,6 +150,10 @@
   _player.physicsBody = nil;
   [self setGameOverScores];
   [self setGameOverEffects];
+  
+  NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
+  
+  [notifier postNotificationName:@"FCGameOver" object:self userInfo:nil];
 }
 
 - (void) setGameOverScores {
@@ -177,13 +180,7 @@
   
   [self runAction:deathAnimation];
   
-  SKScene * gameOverScene = [[GameOver alloc] initWithSize:self.size];
-  SKTransition *reveal = [SKTransition pushWithDirection:SKTransitionDirectionUp duration:1];
-  [self runAction:[SKAction sequence:@[
-                          [SKAction waitForDuration:1],
-                          [SKAction runBlock:^{
-                            [self.view presentScene:gameOverScene transition:reveal];
-                  }]]]];
+  
 }
 
 -(void)update:(CFTimeInterval)currentTime {

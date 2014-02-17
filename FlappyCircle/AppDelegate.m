@@ -12,8 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-  
+  // Override point for customization after application launch.
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   if(![userDefaults objectForKey:@"highscore"]) {
     [userDefaults setObject:@(0) forKey:@"highscore"];

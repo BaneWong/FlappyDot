@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E7E5D0418B2AB51005CAC40 /* circleDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E7E5D0318B2AB51005CAC40 /* circleDie.wav */; };
+		6E7E5D0718B2B12F005CAC40 /* GameOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E5D0618B2B12F005CAC40 /* GameOverController.m */; };
 		6EA0E2E218B16110007A90A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E118B16110007A90A3 /* Foundation.framework */; };
 		6EA0E2E418B16110007A90A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E318B16110007A90A3 /* CoreGraphics.framework */; };
 		6EA0E2E618B16110007A90A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E518B16110007A90A3 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		6E7E5D0318B2AB51005CAC40 /* circleDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = circleDie.wav; sourceTree = "<group>"; };
+		6E7E5D0518B2B12F005CAC40 /* GameOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverController.h; sourceTree = "<group>"; };
+		6E7E5D0618B2B12F005CAC40 /* GameOverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverController.m; sourceTree = "<group>"; };
 		6EA0E2DE18B16110007A90A3 /* FlappyCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA0E2E118B16110007A90A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6EA0E2E318B16110007A90A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -157,6 +160,8 @@
 				6EA0E32718B16B35007A90A3 /* Scenes */,
 				6EA0E2F318B16110007A90A3 /* AppDelegate.m */,
 				6EA0E2F518B16110007A90A3 /* Main.storyboard */,
+				6E7E5D0518B2B12F005CAC40 /* GameOverController.h */,
+				6E7E5D0618B2B12F005CAC40 /* GameOverController.m */,
 				6EA0E2F818B16110007A90A3 /* GameplayController.h */,
 				6EA0E33C18B1969A007A90A3 /* FCUtils.h */,
 				6EA0E33D18B1969A007A90A3 /* FCUtils.m */,
@@ -357,6 +362,7 @@
 				6EA0E2FA18B16110007A90A3 /* GameplayController.m in Sources */,
 				6EA0E32F18B16D70007A90A3 /* GameOver.m in Sources */,
 				6EA0E2F418B16110007A90A3 /* AppDelegate.m in Sources */,
+				6E7E5D0718B2B12F005CAC40 /* GameOverController.m in Sources */,
 				6EA0E33218B16D91007A90A3 /* Player.m in Sources */,
 				6EA0E2F018B16110007A90A3 /* main.m in Sources */,
 			);
