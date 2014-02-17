@@ -8,7 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface Obstacle : SKNode
+@interface Obstacle : SKSpriteNode
 
 - (id)initWithPosition:(CGPoint)position;
 - (void) changeComponentsPosition;

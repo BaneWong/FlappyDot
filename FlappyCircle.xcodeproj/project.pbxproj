@@ -557,6 +557,7 @@
 				6EA0E31918B16110007A90A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EA0E31A18B16110007A90A3 /* Build configuration list for PBXNativeTarget "FlappyCircleTests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +566,7 @@
 				6EA0E31C18B16110007A90A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

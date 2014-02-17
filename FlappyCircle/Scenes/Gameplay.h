@@ -12,6 +12,7 @@ typedef NS_OPTIONS(uint32_t, CNPhysicsCategory) {
   FCPhysicsCategoryPlayer = 1 << 0,
   FCPhysicsCategoryGround = 1 << 1,
   FCPhysicsCategoryObstacle = 1 << 2,
+  FCPhysicsCategoryObstacleComponent = 1 << 3,
 };
 
 @interface Gameplay : SKScene <SKPhysicsContactDelegate>

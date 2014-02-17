@@ -26,6 +26,12 @@
   if (self) {
     self.position = position;
     self.name = @"Obstacle";
+    self.size = CGSizeMake(WIDTH, HEIGHT*2);
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
+    self.physicsBody.dynamic = NO;
+    self.physicsBody.categoryBitMask = FCPhysicsCategoryObstacle;
+    self.physicsBody.contactTestBitMask = FCPhysicsCategoryPlayer;
+    self.physicsBody.collisionBitMask = false;
     [self setupComponents];
   }
   return self;
@@ -49,7 +55,7 @@
 
 - (void) setupComponentPhysics:(SKSpriteNode *)compenent {
   compenent.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:compenent.size];
-  compenent.physicsBody.categoryBitMask = FCPhysicsCategoryObstacle;
+  compenent.physicsBody.categoryBitMask = FCPhysicsCategoryObstacleComponent;
   compenent.physicsBody.dynamic = NO;
   compenent.physicsBody.contactTestBitMask = FCPhysicsCategoryPlayer;
 }
