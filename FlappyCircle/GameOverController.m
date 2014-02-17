@@ -11,10 +11,12 @@
 
 @implementation GameOverController
 
-- (void)viewDidLoad
+- (void)viewWillLayoutSubviews
 {
-  [super viewDidLoad];
-  NSLog(@"ova gama");
+  [super viewWillLayoutSubviews];
+  
+  NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
+  [notifier addObserver:self selector:@selector(segueToGameplay) name:@"FCRetry" object:nil];
   
   // Configure the view.
   SKView * skView = (SKView *)self.view;
@@ -32,6 +34,12 @@
 
 - (BOOL)prefersStatusBarHidden {
   return YES;
+}
+
+- (void) segueToGameplay {
+//  [self performSegueWithIdentifier:@"Dupa2" sender:nil];
+//  [self dismissViewControllerAnimated:YES completion:nil];
+  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

@@ -41,7 +41,7 @@
     _gameRunning = NO;
     [self setupPhysics];
     
-    _player = [Player playerInstance];
+    _player = [[Player alloc] init];
     _player.position = CGPointMake(100, 300);
     [self addChild:_player];
     _playDeathSound = [SKAction playSoundFileNamed:@"circleDie.wav" waitForCompletion:NO];

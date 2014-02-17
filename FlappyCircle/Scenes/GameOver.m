@@ -64,9 +64,8 @@
   SKNode *node = [self nodeAtPoint:location];
   
   if([node.name isEqualToString:@"retryButton"]) {
-    NSLog(@"retraja");
-  } else if([node.name isEqualToString:@"menuButton"]) {
-    NSLog(@"mena");
+    NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
+    [notifier postNotificationName:@"FCRetry" object:self userInfo:nil];
   }
 }
 

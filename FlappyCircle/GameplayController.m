@@ -10,9 +10,11 @@
 #import "GameOverController.h"
 #import "Gameplay.h"
 
+@import iAd;
+
 @implementation GameplayController
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
   [super viewDidLoad];
 
@@ -32,20 +34,21 @@
   [skView presentScene:scene];
 }
 
-
 - (BOOL)prefersStatusBarHidden {
   return YES;
 }
 
 - (void) segueToGameOver {
-  NSLog(@"gameovera");
-  [self performSegueWithIdentifier:@"Dupa" sender:nil];
-//  GameOverController *gameOverController = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverController"];
-//  [self.navigationController pushViewController:gameOverController animated:YES];
+  [self performSegueWithIdentifier:@"FCGameplayToGameOver" sender:nil];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   NSLog(@"seguje");
+  
+  UIViewController *destination = [segue destinationViewController];
+  destination.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
+  
+  [destination requestInterstitialAdPresentation];
 }
 
 

@@ -33,6 +33,8 @@
 		6EA0E33818B17037007A90A3 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E33718B17037007A90A3 /* circle.png */; };
 		6EA0E33B18B1712E007A90A3 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33A18B1712E007A90A3 /* Ground.m */; };
 		6EA0E33E18B1969A007A90A3 /* FCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33D18B1969A007A90A3 /* FCUtils.m */; };
+		6EAE8F2918B2BB9600B90B45 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE8F2818B2BB9600B90B45 /* iAd.framework */; };
+		6EAE8F2C18B2C15600B90B45 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE8F2B18B2C15600B90B45 /* MenuController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,9 @@
 		6EA0E33A18B1712E007A90A3 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ground.m; path = Entities/Ground.m; sourceTree = "<group>"; };
 		6EA0E33C18B1969A007A90A3 /* FCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCUtils.h; sourceTree = "<group>"; };
 		6EA0E33D18B1969A007A90A3 /* FCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCUtils.m; sourceTree = "<group>"; };
+		6EAE8F2818B2BB9600B90B45 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		6EAE8F2A18B2C15600B90B45 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
+		6EAE8F2B18B2C15600B90B45 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EAE8F2918B2BB9600B90B45 /* iAd.framework in Frameworks */,
 				6EA0E2E418B16110007A90A3 /* CoreGraphics.framework in Frameworks */,
 				6EA0E2E618B16110007A90A3 /* UIKit.framework in Frameworks */,
 				6EA0E2E818B16110007A90A3 /* SpriteKit.framework in Frameworks */,
@@ -142,6 +148,7 @@
 		6EA0E2E018B16110007A90A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EAE8F2818B2BB9600B90B45 /* iAd.framework */,
 				6EA0E2E118B16110007A90A3 /* Foundation.framework */,
 				6EA0E2E318B16110007A90A3 /* CoreGraphics.framework */,
 				6EA0E2E518B16110007A90A3 /* UIKit.framework */,
@@ -162,6 +169,8 @@
 				6EA0E2F518B16110007A90A3 /* Main.storyboard */,
 				6E7E5D0518B2B12F005CAC40 /* GameOverController.h */,
 				6E7E5D0618B2B12F005CAC40 /* GameOverController.m */,
+				6EAE8F2A18B2C15600B90B45 /* MenuController.h */,
+				6EAE8F2B18B2C15600B90B45 /* MenuController.m */,
 				6EA0E2F818B16110007A90A3 /* GameplayController.h */,
 				6EA0E33C18B1969A007A90A3 /* FCUtils.h */,
 				6EA0E33D18B1969A007A90A3 /* FCUtils.m */,
@@ -362,6 +371,7 @@
 				6EA0E2FA18B16110007A90A3 /* GameplayController.m in Sources */,
 				6EA0E32F18B16D70007A90A3 /* GameOver.m in Sources */,
 				6EA0E2F418B16110007A90A3 /* AppDelegate.m in Sources */,
+				6EAE8F2C18B2C15600B90B45 /* MenuController.m in Sources */,
 				6E7E5D0718B2B12F005CAC40 /* GameOverController.m in Sources */,
 				6EA0E33218B16D91007A90A3 /* Player.m in Sources */,
 				6EA0E2F018B16110007A90A3 /* main.m in Sources */,

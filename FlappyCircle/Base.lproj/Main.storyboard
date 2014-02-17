@@ -19,12 +19,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="AUy-dk-mwm"/>
                     <connections>
-                        <segue destination="Hdp-bi-qbA" kind="modal" identifier="Dupa" id="4xR-4B-E4S"/>
+                        <segue destination="Hdp-bi-qbA" kind="push" identifier="FCGameplayToGameOver" id="4xR-4B-E4S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1778" y="837"/>
+            <point key="canvasLocation" x="1784" y="853"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bAS-1w-4k8">
@@ -34,12 +34,34 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="LVB-YS-i5n" kind="relationship" relationship="rootViewController" id="tEn-oq-BJv"/>
+                        <segue destination="hlx-GN-efK" kind="relationship" relationship="rootViewController" id="4hS-UQ-FEv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVF-0j-uaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1567" y="145"/>
+            <point key="canvasLocation" x="1557" y="145"/>
+        </scene>
+        <!--Menu Controller-->
+        <scene sceneID="LEd-x1-kdN">
+            <objects>
+                <viewController id="hlx-GN-efK" customClass="MenuController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yh5-9v-ZGL"/>
+                        <viewControllerLayoutGuide type="bottom" id="r2p-Dp-3P6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bYy-87-muP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b4g-Zt-S4U"/>
+                    <connections>
+                        <segue destination="LVB-YS-i5n" kind="push" identifier="Dupa" id="ctu-OP-4oS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m7v-FQ-ksU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2037" y="199"/>
         </scene>
         <!--Game Over Controller-->
         <scene sceneID="QXe-Mt-bNE">
