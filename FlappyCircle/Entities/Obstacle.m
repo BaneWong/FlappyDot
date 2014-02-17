@@ -8,13 +8,17 @@
 
 #import "Obstacle.h"
 #import "Gameplay.h"
-
-#define GAP 2
-#define MIN_GAP_Y 50
-#define MAX_GAP_Y (_gameplay.size.height - 50)
+#define GAMEPLAY_HEIGHT 480
+#define GAP_HEIGHT 150
+#define MIN_GAP_Y_CORD (GAP_HEIGHT - 160)
+#define MAX_GAP_Y_CORD 160
 #define WIDTH 50
-#define HEIGHT 100
+#define HEIGHT GAMEPLAY_HEIGHT
+//#define
 
+static int FCRandomInt(int min, int max) {
+  return min + arc4random() % (max - min + 1);
+}
 
 @implementation Obstacle {
   CGSize _gameplaySize;
@@ -34,18 +38,19 @@
 }
 
 - (void) setupComponents {
-  int initialRand = 200;
+  int initialOffset = FCRandomInt(MIN_GAP_Y_CORD, MAX_GAP_Y_CORD);
+  NSLog(@"%f", _gameplaySize.height/3);
   _topComponent = [SKSpriteNode node];
   _topComponent.size = CGSizeMake(WIDTH, HEIGHT);
   _topComponent.color = [SKColor greenColor];
-  _topComponent.position = CGPointMake(0, _gameplaySize.height - initialRand);
+  _topComponent.position = CGPointMake(0, GAMEPLAY_HEIGHT + initialOffset);
   [self setupComponentPhysics:_topComponent];
   [self addChild:_topComponent];
   
   _bottomComponent = [SKSpriteNode node];
   _bottomComponent.size = CGSizeMake(WIDTH, HEIGHT);
   _bottomComponent.color = [SKColor blackColor];
-  _bottomComponent.position = CGPointMake(0, _topComponent.position.y - HEIGHT - GAP);
+  _bottomComponent.position = CGPointMake(0, _topComponent.position.y - HEIGHT - GAP_HEIGHT);
   [self setupComponentPhysics:_bottomComponent];
   [self addChild:_bottomComponent];
   
