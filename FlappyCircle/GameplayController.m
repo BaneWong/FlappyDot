@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Pablo. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GameplayController.h"
 #import "Gameplay.h"
 
-@implementation ViewController
+@implementation GameplayController
 
 - (void)viewDidLoad
 {

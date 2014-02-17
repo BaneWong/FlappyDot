@@ -9,14 +9,12 @@
 #import "GameOver.h"
 
 @implementation GameOver {
-  int _score;
   SKLabelNode *_retryLabel;
   SKLabelNode *_menuLabel;
 }
 
-- (id)initWithSize:(CGSize)size score:(int) score{
+- (id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-      _score = score;
       self.backgroundColor = [SKColor whiteColor];
       [self setupLabels];
       
@@ -25,6 +23,10 @@
 }
 
 - (void) setupLabels {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  int currentScore = [[userDefaults objectForKey:@"score"] integerValue];
+  int highscore = [[userDefaults objectForKey:@"highscore"] integerValue];
+  
   SKLabelNode *_infoLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
   _infoLabel.text = @"Game Over";
   _infoLabel.fontColor = [SKColor blackColor];
@@ -33,14 +35,14 @@
   [self addChild:_infoLabel];
   
   SKLabelNode *_scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", _score];
+  _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", currentScore];
   _scoreLabel.fontColor = [SKColor blackColor];
   _scoreLabel.fontSize = 18;
   _scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 160);
   [self addChild:_scoreLabel];
   
   SKLabelNode *_recordLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _recordLabel.text = [NSString stringWithFormat:@"Best: %i", _score];
+  _recordLabel.text = [NSString stringWithFormat:@"Best: %i", highscore];
   _recordLabel.fontColor = [SKColor redColor];
   _recordLabel.fontSize = 18;
   _recordLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 200);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E7E5D0418B2AB51005CAC40 /* circleDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E7E5D0318B2AB51005CAC40 /* circleDie.wav */; };
 		6EA0E2E218B16110007A90A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E118B16110007A90A3 /* Foundation.framework */; };
 		6EA0E2E418B16110007A90A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E318B16110007A90A3 /* CoreGraphics.framework */; };
 		6EA0E2E618B16110007A90A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E518B16110007A90A3 /* UIKit.framework */; };
@@ -15,7 +16,7 @@
 		6EA0E2F018B16110007A90A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E2EF18B16110007A90A3 /* main.m */; };
 		6EA0E2F418B16110007A90A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E2F318B16110007A90A3 /* AppDelegate.m */; };
 		6EA0E2F718B16110007A90A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E2F518B16110007A90A3 /* Main.storyboard */; };
-		6EA0E2FA18B16110007A90A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E2F918B16110007A90A3 /* ViewController.m */; };
+		6EA0E2FA18B16110007A90A3 /* GameplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E2F918B16110007A90A3 /* GameplayController.m */; };
 		6EA0E30118B16110007A90A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E30018B16110007A90A3 /* Images.xcassets */; };
 		6EA0E30818B16110007A90A3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E30718B16110007A90A3 /* XCTest.framework */; };
 		6EA0E30918B16110007A90A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA0E2E118B16110007A90A3 /* Foundation.framework */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E7E5D0318B2AB51005CAC40 /* circleDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = circleDie.wav; sourceTree = "<group>"; };
 		6EA0E2DE18B16110007A90A3 /* FlappyCircle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyCircle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA0E2E118B16110007A90A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6EA0E2E318B16110007A90A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,8 +58,8 @@
 		6EA0E2F218B16110007A90A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EA0E2F318B16110007A90A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6EA0E2F618B16110007A90A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6EA0E2F818B16110007A90A3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6EA0E2F918B16110007A90A3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6EA0E2F818B16110007A90A3 /* GameplayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameplayController.h; sourceTree = "<group>"; };
+		6EA0E2F918B16110007A90A3 /* GameplayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameplayController.m; sourceTree = "<group>"; };
 		6EA0E30018B16110007A90A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6EA0E30618B16110007A90A3 /* FlappyCircleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyCircleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA0E30718B16110007A90A3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -107,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E7E5D0218B2AB42005CAC40 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E5D0318B2AB51005CAC40 /* circleDie.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		6EA0E2D518B16110007A90A3 = {
 			isa = PBXGroup;
 			children = (
@@ -147,10 +157,10 @@
 				6EA0E32718B16B35007A90A3 /* Scenes */,
 				6EA0E2F318B16110007A90A3 /* AppDelegate.m */,
 				6EA0E2F518B16110007A90A3 /* Main.storyboard */,
-				6EA0E2F818B16110007A90A3 /* ViewController.h */,
+				6EA0E2F818B16110007A90A3 /* GameplayController.h */,
 				6EA0E33C18B1969A007A90A3 /* FCUtils.h */,
 				6EA0E33D18B1969A007A90A3 /* FCUtils.m */,
-				6EA0E2F918B16110007A90A3 /* ViewController.m */,
+				6EA0E2F918B16110007A90A3 /* GameplayController.m */,
 				6EA0E30018B16110007A90A3 /* Images.xcassets */,
 				6EA0E2EA18B16110007A90A3 /* Supporting Files */,
 			);
@@ -189,6 +199,7 @@
 		6EA0E31D18B164FD007A90A3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6E7E5D0218B2AB42005CAC40 /* Sounds */,
 				6EA0E33618B17021007A90A3 /* Images */,
 				6EA0E31E18B1650A007A90A3 /* Fonts */,
 			);
@@ -315,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA0E2EE18B16110007A90A3 /* InfoPlist.strings in Resources */,
+				6E7E5D0418B2AB51005CAC40 /* circleDie.wav in Resources */,
 				6EA0E30118B16110007A90A3 /* Images.xcassets in Resources */,
 				6EA0E33818B17037007A90A3 /* circle.png in Resources */,
 				6EA0E32918B16D00007A90A3 /* Minecraftia.ttf in Resources */,
@@ -342,7 +354,7 @@
 				6EA0E33E18B1969A007A90A3 /* FCUtils.m in Sources */,
 				6EA0E33518B16DA1007A90A3 /* Obstacle.m in Sources */,
 				6EA0E33B18B1712E007A90A3 /* Ground.m in Sources */,
-				6EA0E2FA18B16110007A90A3 /* ViewController.m in Sources */,
+				6EA0E2FA18B16110007A90A3 /* GameplayController.m in Sources */,
 				6EA0E32F18B16D70007A90A3 /* GameOver.m in Sources */,
 				6EA0E2F418B16110007A90A3 /* AppDelegate.m in Sources */,
 				6EA0E33218B16D91007A90A3 /* Player.m in Sources */,

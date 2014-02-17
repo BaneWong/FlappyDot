@@ -23,6 +23,7 @@
   SKLabelNode *_highscoreLabel;
   SKLabelNode *_titleLabel;
   int _score;
+  SKAction *_playDeathSound;
   
   SKNode *_labelsLayer;
 }
@@ -44,6 +45,7 @@
     _player = [Player playerInstance];
     _player.position = CGPointMake(100, 300);
     [self addChild:_player];
+    _playDeathSound = [SKAction playSoundFileNamed:@"circleDie.wav" waitForCompletion:NO];
     
     [self spawnObstacles];
     [self setupLabels];
@@ -68,8 +70,9 @@
   [self addChild:_scoreLabel];
   [self updateScoreLabel];
   
+  int highscore = [[[NSUserDefaults standardUserDefaults] objectForKey:@"highscore"] integerValue];
   _highscoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", 0];
+  _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", highscore];
   _highscoreLabel.fontColor = [SKColor redColor];
   _highscoreLabel.fontSize = 20;
   _highscoreLabel.position = CGPointMake(self.size.width - 80, 30);
@@ -114,8 +117,10 @@
   uint32_t collision = (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask);
   
   if(collision == (FCPhysicsCategoryObstacle | FCPhysicsCategoryPlayer)) {
-    _score += 1;
-    [self updateScoreLabel];
+    if(_gameRunning){
+      _score += 1;
+      [self updateScoreLabel];
+    }
   }
 }
 
@@ -141,8 +146,38 @@
 }
 
 - (void) gameOver {
+  [self runAction:_playDeathSound];
   _gameRunning = NO;
-  SKScene * gameOverScene = [[GameOver alloc] initWithSize:self.size score:_score];
+  _player.physicsBody = nil;
+  [self setGameOverScores];
+  [self setGameOverEffects];
+}
+
+- (void) setGameOverScores {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  
+  if([[userDefaults objectForKey:@"highscore"] integerValue] < _score){ //highscore was beaten
+    [userDefaults setObject:@(_score) forKey:@"highscore"];
+  }
+  
+  
+  [userDefaults setObject:@(_score) forKey:@"score"];
+  [userDefaults synchronize];
+}
+
+- (void) setGameOverEffects {
+  SKAction *deathAnimation = [SKAction sequence:@[
+                                [SKAction runBlock:^{
+                                  self.backgroundColor = [SKColor redColor];
+                                }],
+                                [SKAction waitForDuration:0.05],
+                                [SKAction runBlock:^{
+                                  self.backgroundColor = [SKColor whiteColor];
+                                }]]];
+  
+  [self runAction:deathAnimation];
+  
+  SKScene * gameOverScene = [[GameOver alloc] initWithSize:self.size];
   SKTransition *reveal = [SKTransition pushWithDirection:SKTransitionDirectionUp duration:1];
   [self runAction:[SKAction sequence:@[
                           [SKAction waitForDuration:1],
