@@ -20,6 +20,8 @@
   
   SKLabelNode *_instructionLabel;
   SKLabelNode *_scoreLabel;
+  SKLabelNode *_highscoreLabel;
+  SKLabelNode *_titleLabel;
   int _score;
   
   SKNode *_labelsLayer;
@@ -65,6 +67,20 @@
   [_scoreLabel runAction:[SKAction fadeOutWithDuration:0]];
   [self addChild:_scoreLabel];
   [self updateScoreLabel];
+  
+  _highscoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
+  _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", 0];
+  _highscoreLabel.fontColor = [SKColor redColor];
+  _highscoreLabel.fontSize = 20;
+  _highscoreLabel.position = CGPointMake(self.size.width - 80, 30);
+  [self addChild:_highscoreLabel];
+  
+  _titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
+  _titleLabel.text = @"Flappy Circle";
+  _titleLabel.fontColor = [SKColor blackColor];
+  _titleLabel.fontSize = 30;
+  _titleLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 100);
+  [self addChild:_titleLabel];
 }
 
 - (void) spawnObstacles {
@@ -114,10 +130,14 @@
 - (void) startGameplay {
   _gameRunning = YES;
   self.physicsWorld.gravity = GRAVITY;
-  [_scoreLabel runAction:[SKAction fadeInWithDuration:0.25]];
-  [_instructionLabel runAction:[SKAction sequence:@[
-                            [SKAction fadeOutWithDuration:0.5],
-                            [SKAction removeFromParent]]]];
+  SKAction *acRemoveLabel = [SKAction sequence:@[
+                              [SKAction fadeOutWithDuration:0.3],
+                              [SKAction removeFromParent]]];
+  
+  [_scoreLabel runAction:[SKAction fadeInWithDuration:0.3]];
+  [_instructionLabel runAction:acRemoveLabel];
+  [_highscoreLabel runAction:acRemoveLabel];
+  [_titleLabel runAction:acRemoveLabel];
 }
 
 - (void) gameOver {

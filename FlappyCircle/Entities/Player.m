@@ -41,7 +41,7 @@
   self.physicsBody.categoryBitMask = FCPhysicsCategoryPlayer;
   self.physicsBody.collisionBitMask = FCPhysicsCategoryObstacleComponent | FCPhysicsCategoryGround;
   self.physicsBody.allowsRotation = NO;
-  
+  self.physicsBody.usesPreciseCollisionDetection = YES;
 }
 
 @end

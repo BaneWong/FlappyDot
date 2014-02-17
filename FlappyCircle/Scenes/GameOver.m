@@ -33,34 +33,27 @@
   [self addChild:_infoLabel];
   
   SKLabelNode *_scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _scoreLabel.text = [NSString stringWithFormat:@"Your score: %i", _score];
+  _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", _score];
   _scoreLabel.fontColor = [SKColor blackColor];
-  _scoreLabel.fontSize = 15;
+  _scoreLabel.fontSize = 18;
   _scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 160);
   [self addChild:_scoreLabel];
   
   SKLabelNode *_recordLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _recordLabel.text = [NSString stringWithFormat:@"Your best: %i", _score];
+  _recordLabel.text = [NSString stringWithFormat:@"Best: %i", _score];
   _recordLabel.fontColor = [SKColor redColor];
-  _recordLabel.fontSize = 15;
+  _recordLabel.fontSize = 18;
   _recordLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 200);
   [self addChild:_recordLabel];
   
   _retryLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
   _retryLabel.name = @"retryButton";
   _retryLabel.text = @"Retry?";
-  _retryLabel.fontColor = [SKColor blackColor];
-  _retryLabel.fontSize = 18;
-  _retryLabel.position = CGPointMake(CGRectGetMidX(self.frame) + 90, 50);
+  _retryLabel.fontColor = [SKColor redColor];
+  _retryLabel.fontSize = 20;
+  _retryLabel.position = CGPointMake(CGRectGetMidX(self.frame), 90);
   [self addChild:_retryLabel];
   
-  _menuLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _menuLabel.name = @"menuButton";
-  _menuLabel.text = @"Main Menu";
-  _menuLabel.fontColor = [SKColor blackColor];
-  _menuLabel.fontSize = 18;
-  _menuLabel.position = CGPointMake(CGRectGetMidX(self.frame) - 70, 50);
-  [self addChild:_menuLabel];
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
