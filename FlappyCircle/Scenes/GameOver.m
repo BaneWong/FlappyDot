@@ -47,6 +47,7 @@
   [self addChild:_recordLabel];
   
   _retryLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
+  _retryLabel.name = @"retryButton";
   _retryLabel.text = @"Retry?";
   _retryLabel.fontColor = [SKColor blackColor];
   _retryLabel.fontSize = 18;
@@ -54,11 +55,24 @@
   [self addChild:_retryLabel];
   
   _menuLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
+  _menuLabel.name = @"menuButton";
   _menuLabel.text = @"Main Menu";
   _menuLabel.fontColor = [SKColor blackColor];
   _menuLabel.fontSize = 18;
   _menuLabel.position = CGPointMake(CGRectGetMidX(self.frame) - 70, 50);
   [self addChild:_menuLabel];
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  UITouch *touch =[touches anyObject];
+  CGPoint location = [touch locationInNode:self];
+  SKNode *node = [self nodeAtPoint:location];
+  
+  if([node.name isEqualToString:@"retryButton"]) {
+    NSLog(@"retraja");
+  } else if([node.name isEqualToString:@"menuButton"]) {
+    NSLog(@"mena");
+  }
 }
 
 

@@ -62,6 +62,7 @@
   _scoreLabel.fontColor = [SKColor redColor];
   _scoreLabel.fontSize = 20;
   _scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 50);
+  [_scoreLabel runAction:[SKAction fadeOutWithDuration:0]];
   [self addChild:_scoreLabel];
   [self updateScoreLabel];
 }
@@ -87,7 +88,6 @@
   uint32_t collision = (contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask);
   
   if(collision == (FCPhysicsCategoryGround | FCPhysicsCategoryPlayer)) {
-    NSLog(@"playa hita granda");
     [self gameOver];
   } else if(collision == (FCPhysicsCategoryObstacleComponent | FCPhysicsCategoryPlayer)) {
     [self gameOver];
@@ -114,6 +114,7 @@
 - (void) startGameplay {
   _gameRunning = YES;
   self.physicsWorld.gravity = GRAVITY;
+  [_scoreLabel runAction:[SKAction fadeInWithDuration:0.25]];
   [_instructionLabel runAction:[SKAction sequence:@[
                             [SKAction fadeOutWithDuration:0.5],
                             [SKAction removeFromParent]]]];
