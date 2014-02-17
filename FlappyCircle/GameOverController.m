@@ -14,6 +14,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  NSLog(@"ova gama");
   
   // Configure the view.
   SKView * skView = (SKView *)self.view;

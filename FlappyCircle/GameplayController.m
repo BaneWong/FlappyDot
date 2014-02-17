@@ -7,6 +7,7 @@
 //
 
 #import "GameplayController.h"
+#import "GameOverController.h"
 #import "Gameplay.h"
 
 @implementation GameplayController
@@ -37,7 +38,14 @@
 }
 
 - (void) segueToGameOver {
-  NSLog(@"ur mama dead");
+  NSLog(@"gameovera");
+  [self performSegueWithIdentifier:@"Dupa" sender:nil];
+//  GameOverController *gameOverController = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverController"];
+//  [self.navigationController pushViewController:gameOverController animated:YES];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  NSLog(@"seguje");
 }
 
 

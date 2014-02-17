@@ -145,10 +145,10 @@
 }
 
 - (void) gameOver {
-  [self runAction:_playDeathSound];
   _gameRunning = NO;
+  [self runAction:_playDeathSound];
   _player.physicsBody = nil;
-  [self setGameOverScores];
+//  [self setGameOverScores];
   [self setGameOverEffects];
   
   NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
@@ -179,8 +179,6 @@
                                 }]]];
   
   [self runAction:deathAnimation];
-  
-  
 }
 
 -(void)update:(CFTimeInterval)currentTime {
