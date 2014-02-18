@@ -8,6 +8,7 @@
 
 #import "GameOverController.h"
 #import "GameOver.h"
+@import iAd;
 
 @implementation GameOverController
 

@@ -57,16 +57,11 @@
   
   
 }
-  
-  
-
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  
+  //iAds
   UIViewController *destination = [segue destinationViewController];
-  destination.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
-  
-  [destination requestInterstitialAdPresentation];
+  destination.interstitialPresentationPolicy = ADInterstitialPresentationPolicyAutomatic;
 }
 
 

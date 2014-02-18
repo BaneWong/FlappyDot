@@ -34,8 +34,10 @@
 		6EA0E33E18B1969A007A90A3 /* FCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33D18B1969A007A90A3 /* FCUtils.m */; };
 		6EAE8F2918B2BB9600B90B45 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE8F2818B2BB9600B90B45 /* iAd.framework */; };
 		6EAE8F2C18B2C15600B90B45 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE8F2B18B2C15600B90B45 /* MenuController.m */; };
-		6EAE8F3118B2D9F500B90B45 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F2F18B2D9F500B90B45 /* circle.png */; };
-		6EAE8F3218B2D9F500B90B45 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F3018B2D9F500B90B45 /* circle@2x.png */; };
+		6EAE8F4818B2E52300B90B45 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F4618B2E52300B90B45 /* jump.wav */; };
+		6EAE8F4918B2E52300B90B45 /* scorePoint.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F4718B2E52300B90B45 /* scorePoint.wav */; };
+		6EAE8F4C18B2E64500B90B45 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F4A18B2E64500B90B45 /* circle.png */; };
+		6EAE8F4D18B2E64500B90B45 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F4B18B2E64500B90B45 /* circle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +92,10 @@
 		6EAE8F2818B2BB9600B90B45 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		6EAE8F2A18B2C15600B90B45 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		6EAE8F2B18B2C15600B90B45 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
-		6EAE8F2F18B2D9F500B90B45 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = ../../../../Desktop/circle.png; sourceTree = "<group>"; };
-		6EAE8F3018B2D9F500B90B45 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle@2x.png"; path = "../../../../Desktop/circle@2x.png"; sourceTree = "<group>"; };
+		6EAE8F4618B2E52300B90B45 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
+		6EAE8F4718B2E52300B90B45 /* scorePoint.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scorePoint.wav; sourceTree = "<group>"; };
+		6EAE8F4A18B2E64500B90B45 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		6EAE8F4B18B2E64500B90B45 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 		6E7E5D0218B2AB42005CAC40 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				6EAE8F4618B2E52300B90B45 /* jump.wav */,
+				6EAE8F4718B2E52300B90B45 /* scorePoint.wav */,
 				6E7E5D0318B2AB51005CAC40 /* circleDie.wav */,
 			);
 			name = Sounds;
@@ -260,8 +266,8 @@
 		6EA0E33618B17021007A90A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				6EAE8F2F18B2D9F500B90B45 /* circle.png */,
-				6EAE8F3018B2D9F500B90B45 /* circle@2x.png */,
+				6EAE8F4A18B2E64500B90B45 /* circle.png */,
+				6EAE8F4B18B2E64500B90B45 /* circle@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -313,6 +319,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Pablo;
 				TargetAttributes = {
+					6EA0E2DD18B16110007A90A3 = {
+						DevelopmentTeam = K2TJ3T5LZE;
+					};
 					6EA0E30518B16110007A90A3 = {
 						TestTargetID = 6EA0E2DD18B16110007A90A3;
 					};
@@ -342,13 +351,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EAE8F4818B2E52300B90B45 /* jump.wav in Resources */,
 				6EA0E2EE18B16110007A90A3 /* InfoPlist.strings in Resources */,
 				6E7E5D0418B2AB51005CAC40 /* circleDie.wav in Resources */,
 				6EA0E30118B16110007A90A3 /* Images.xcassets in Resources */,
-				6EAE8F3118B2D9F500B90B45 /* circle.png in Resources */,
+				6EAE8F4D18B2E64500B90B45 /* circle@2x.png in Resources */,
+				6EAE8F4918B2E52300B90B45 /* scorePoint.wav in Resources */,
 				6EA0E32918B16D00007A90A3 /* Minecraftia.ttf in Resources */,
 				6EA0E2F718B16110007A90A3 /* Main.storyboard in Resources */,
-				6EAE8F3218B2D9F500B90B45 /* circle@2x.png in Resources */,
+				6EAE8F4C18B2E64500B90B45 /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +456,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -484,6 +496,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -505,10 +518,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlappyCircle/FlappyCircle-Prefix.pch";
 				INFOPLIST_FILE = "FlappyCircle/FlappyCircle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -519,10 +535,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlappyCircle/FlappyCircle-Prefix.pch";
 				INFOPLIST_FILE = "FlappyCircle/FlappyCircle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

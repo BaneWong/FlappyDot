@@ -21,5 +21,9 @@
   [self performSegueWithIdentifier:@"FCStart" sender:nil];
 }
 
+- (BOOL) prefersStatusBarHidden{
+  return YES;
+}
+
 
 @end

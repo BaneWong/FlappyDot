@@ -50,7 +50,7 @@
   
   _retryLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
   _retryLabel.name = @"retryButton";
-  _retryLabel.text = @"Retry?";
+  _retryLabel.text = @"Tap to retry";
   _retryLabel.fontColor = [SKColor redColor];
   _retryLabel.fontSize = 20;
   _retryLabel.position = CGPointMake(CGRectGetMidX(self.frame), 90);
@@ -59,14 +59,8 @@
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  UITouch *touch =[touches anyObject];
-  CGPoint location = [touch locationInNode:self];
-  SKNode *node = [self nodeAtPoint:location];
-  
-  if([node.name isEqualToString:@"retryButton"]) {
-    NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
-    [notifier postNotificationName:@"FCRetry" object:self userInfo:nil];
-  }
+  NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
+  [notifier postNotificationName:@"FCRetry" object:self userInfo:nil];
 }
 
 

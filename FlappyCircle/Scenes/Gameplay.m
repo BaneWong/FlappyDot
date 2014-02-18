@@ -16,6 +16,7 @@
   NSTimeInterval _lastUpdateTime;
   NSTimeInterval _dt;
   BOOL _gameRunning;
+  BOOL _gameEnded;
   
   SKLabelNode *_instructionLabel;
   SKLabelNode *_scoreLabel;
@@ -23,13 +24,15 @@
   SKLabelNode *_titleLabel;
   int _score;
   SKAction *_playDeathSound;
+  SKAction *_playPointSound;
+  SKAction *_playStartSound;
   
   SKNode *_labelsLayer;
 }
 
-#define IMPULSE_POWER 480
-#define OBSTACLE_SPEED -250
-#define GRAVITY CGVectorMake(0, -11)
+#define IMPULSE_POWER 530
+#define OBSTACLE_SPEED -220
+#define GRAVITY CGVectorMake(0, -12)
 #define OBSTACLE_RESPAWN_BORDER -50
 #define OBSTACLE_RESPAWN_START 350
 #define GAP_BEETWEEN_OBSTACLES 200
@@ -39,12 +42,15 @@
     self.backgroundColor = [SKColor colorWithRed:1 green:1 blue:1 alpha:1.0];
     
     _gameRunning = NO;
+    _gameEnded = NO;
     [self setupPhysics];
     
     _player = [[Player alloc] init];
     _player.position = CGPointMake(100, 300);
     [self addChild:_player];
     _playDeathSound = [SKAction playSoundFileNamed:@"circleDie.wav" waitForCompletion:NO];
+    _playPointSound = [SKAction playSoundFileNamed:@"scorePoint.wav" waitForCompletion:NO];
+    _playStartSound = [SKAction playSoundFileNamed:@"jump.wav" waitForCompletion:NO];
     
     [self spawnObstacles];
     [self setupLabels];
@@ -118,13 +124,14 @@
   if(collision == (FCPhysicsCategoryObstacle | FCPhysicsCategoryPlayer)) {
     if(_gameRunning){
       _score += 1;
+      [self runAction:_playPointSound];
       [self updateScoreLabel];
     }
   }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-  if(!_gameRunning) {
+  if(!_gameRunning && !_gameEnded) {
     [self startGameplay];
   }
   
@@ -132,6 +139,7 @@
 }
 
 - (void) startGameplay {
+  [self runAction:_playStartSound];
   _gameRunning = YES;
   self.physicsWorld.gravity = GRAVITY;
   SKAction *acRemoveLabel = [SKAction sequence:@[
@@ -146,30 +154,18 @@
 
 - (void) gameOver {
   _gameRunning = NO;
+  _gameEnded = YES;
   [self runAction:_playDeathSound];
   _player.physicsBody = nil;
-//  [self setGameOverScores];
   [self setGameOverEffects];
   
   [self runAction:[SKAction sequence:@[
-                            [SKAction waitForDuration:0.5],
+                            [SKAction waitForDuration:0.8],
                             [SKAction runBlock:^{
                               NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
                               [notifier postNotificationName:@"FCGameOver" object:self userInfo:@{@"score":@(_score)}];
                             }]]]];
     
-}
-
-- (void) setGameOverScores {
-  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  
-  if([[userDefaults objectForKey:@"highscore"] integerValue] < _score){ //highscore was beaten
-    [userDefaults setObject:@(_score) forKey:@"highscore"];
-  }
-  
-  
-  [userDefaults setObject:@(_score) forKey:@"score"];
-  [userDefaults synchronize];
 }
 
 - (void) setGameOverEffects {

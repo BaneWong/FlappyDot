@@ -14,10 +14,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // Override point for customization after application launch.
-  
+  //iAds
   [UIViewController prepareInterstitialAds];
 
+  //scores
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   if(![userDefaults objectForKey:@"highscore"]) {
     [userDefaults setObject:@(0) forKey:@"highscore"];
