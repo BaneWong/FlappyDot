@@ -11,16 +11,6 @@
 
 @implementation Player
 
-+ (Player *) playerInstance {
-  static Player *_playerInstance = nil;
-  static dispatch_once_t onceToken;
-  
-  dispatch_once(&onceToken, ^{
-    _playerInstance = [[Player alloc] init];
-  });
-  return _playerInstance;
-}
-
 
 - (id)init
 {
@@ -28,7 +18,7 @@
   if (self) {
     SKTexture *playerTexture = [SKTexture textureWithImageNamed:@"circle"];
     self.texture = playerTexture;
-    self.size = CGSizeMake(playerTexture.size.height/4,playerTexture.size.width/4);
+    self.size = CGSizeMake(playerTexture.size.height, playerTexture.size.width);
     
     [self setupPhysics];
   }

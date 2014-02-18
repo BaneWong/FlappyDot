@@ -73,8 +73,8 @@
   _highscoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
   _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", highscore];
   _highscoreLabel.fontColor = [SKColor redColor];
-  _highscoreLabel.fontSize = 20;
-  _highscoreLabel.position = CGPointMake(self.size.width - 80, 30);
+  _highscoreLabel.fontSize = 18;
+  _highscoreLabel.position = CGPointMake(self.size.width - 70, 10);
   [self addChild:_highscoreLabel];
   
   _titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
@@ -151,9 +151,13 @@
 //  [self setGameOverScores];
   [self setGameOverEffects];
   
-  NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
-  
-  [notifier postNotificationName:@"FCGameOver" object:self userInfo:nil];
+  [self runAction:[SKAction sequence:@[
+                            [SKAction waitForDuration:0.5],
+                            [SKAction runBlock:^{
+                              NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
+                              [notifier postNotificationName:@"FCGameOver" object:self userInfo:@{@"score":@(_score)}];
+                            }]]]];
+    
 }
 
 - (void) setGameOverScores {

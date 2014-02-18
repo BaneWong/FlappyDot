@@ -16,7 +16,7 @@
   if (self) {
     self.size = size;
     self.color = [SKColor blackColor];
-    self.position = CGPointMake(self.size.width/2, 10);
+    self.position = CGPointMake(self.size.width/2, -self.size.height/2);
     [self setupPhysics];
   }
   return self;

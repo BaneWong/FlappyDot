@@ -37,8 +37,6 @@
 }
 
 - (void) segueToGameplay {
-//  [self performSegueWithIdentifier:@"Dupa2" sender:nil];
-//  [self dismissViewControllerAnimated:YES completion:nil];
   [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

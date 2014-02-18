@@ -10,6 +10,4 @@
 
 @interface Player : SKSpriteNode
 
-+ (Player *) playerInstance;
-
 @end

@@ -30,11 +30,12 @@
 		6EA0E32F18B16D70007A90A3 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E32E18B16D70007A90A3 /* GameOver.m */; };
 		6EA0E33218B16D91007A90A3 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33118B16D91007A90A3 /* Player.m */; };
 		6EA0E33518B16DA1007A90A3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33418B16DA1007A90A3 /* Obstacle.m */; };
-		6EA0E33818B17037007A90A3 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0E33718B17037007A90A3 /* circle.png */; };
 		6EA0E33B18B1712E007A90A3 /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33A18B1712E007A90A3 /* Ground.m */; };
 		6EA0E33E18B1969A007A90A3 /* FCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0E33D18B1969A007A90A3 /* FCUtils.m */; };
 		6EAE8F2918B2BB9600B90B45 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE8F2818B2BB9600B90B45 /* iAd.framework */; };
 		6EAE8F2C18B2C15600B90B45 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE8F2B18B2C15600B90B45 /* MenuController.m */; };
+		6EAE8F3118B2D9F500B90B45 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F2F18B2D9F500B90B45 /* circle.png */; };
+		6EAE8F3218B2D9F500B90B45 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAE8F3018B2D9F500B90B45 /* circle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +83,6 @@
 		6EA0E33118B16D91007A90A3 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Entities/Player.m; sourceTree = "<group>"; };
 		6EA0E33318B16DA1007A90A3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Entities/Obstacle.h; sourceTree = "<group>"; };
 		6EA0E33418B16DA1007A90A3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Entities/Obstacle.m; sourceTree = "<group>"; };
-		6EA0E33718B17037007A90A3 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		6EA0E33918B1712E007A90A3 /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ground.h; path = Entities/Ground.h; sourceTree = "<group>"; };
 		6EA0E33A18B1712E007A90A3 /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ground.m; path = Entities/Ground.m; sourceTree = "<group>"; };
 		6EA0E33C18B1969A007A90A3 /* FCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCUtils.h; sourceTree = "<group>"; };
@@ -90,6 +90,8 @@
 		6EAE8F2818B2BB9600B90B45 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		6EAE8F2A18B2C15600B90B45 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		6EAE8F2B18B2C15600B90B45 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		6EAE8F2F18B2D9F500B90B45 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = ../../../../Desktop/circle.png; sourceTree = "<group>"; };
+		6EAE8F3018B2D9F500B90B45 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle@2x.png"; path = "../../../../Desktop/circle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +260,8 @@
 		6EA0E33618B17021007A90A3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				6EA0E33718B17037007A90A3 /* circle.png */,
+				6EAE8F2F18B2D9F500B90B45 /* circle.png */,
+				6EAE8F3018B2D9F500B90B45 /* circle@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -342,9 +345,10 @@
 				6EA0E2EE18B16110007A90A3 /* InfoPlist.strings in Resources */,
 				6E7E5D0418B2AB51005CAC40 /* circleDie.wav in Resources */,
 				6EA0E30118B16110007A90A3 /* Images.xcassets in Resources */,
-				6EA0E33818B17037007A90A3 /* circle.png in Resources */,
+				6EAE8F3118B2D9F500B90B45 /* circle.png in Resources */,
 				6EA0E32918B16D00007A90A3 /* Minecraftia.ttf in Resources */,
 				6EA0E2F718B16110007A90A3 /* Main.storyboard in Resources */,
+				6EAE8F3218B2D9F500B90B45 /* circle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

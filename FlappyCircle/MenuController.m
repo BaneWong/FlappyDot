@@ -18,9 +18,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
-	// Do any additional setup after loading the view.
-  NSLog(@"i new hir");
-  [self performSegueWithIdentifier:@"Dupa" sender:nil];
+  [self performSegueWithIdentifier:@"FCStart" sender:nil];
 }
 
 

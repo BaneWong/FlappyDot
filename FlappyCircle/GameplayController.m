@@ -19,7 +19,7 @@
   [super viewDidLoad];
 
   NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
-  [notifier addObserver:self selector:@selector(segueToGameOver) name:@"FCGameOver" object:nil];
+  [notifier addObserver:self selector:@selector(segueToGameOver:) name:@"FCGameOver" object:nil];
 
   // Configure the view.
   SKView * skView = (SKView *)self.view;
@@ -38,12 +38,30 @@
   return YES;
 }
 
-- (void) segueToGameOver {
+- (void) segueToGameOver:(NSNotification *) notification {
+  int score = [notification.userInfo[@"score"] integerValue];
+  [self setScores:score];
+
   [self performSegueWithIdentifier:@"FCGameplayToGameOver" sender:nil];
 }
 
+- (void) setScores:(int) score {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  
+  if([[userDefaults objectForKey:@"highscore"] integerValue] < score){ //highscore was beaten
+    [userDefaults setObject:@(score) forKey:@"highscore"];
+  }
+  
+  [userDefaults setObject:@(score) forKey:@"score"];
+  [userDefaults synchronize];
+  
+  
+}
+  
+  
+
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  NSLog(@"seguje");
   
   UIViewController *destination = [segue destinationViewController];
   destination.interstitialPresentationPolicy = ADInterstitialPresentationPolicyManual;
