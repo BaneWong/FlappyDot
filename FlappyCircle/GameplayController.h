@@ -11,4 +11,6 @@
 
 @interface GameplayController : UIViewController
 
+@property (assign, nonatomic) int score;
+
 @end

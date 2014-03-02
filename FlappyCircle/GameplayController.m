@@ -39,28 +39,17 @@
 }
 
 - (void) segueToGameOver:(NSNotification *) notification {
-  int score = [notification.userInfo[@"score"] integerValue];
-  [self setScores:score];
+  self.score = [notification.userInfo[@"score"] integerValue];
 
   [self performSegueWithIdentifier:@"FCGameplayToGameOver" sender:nil];
 }
 
-- (void) setScores:(int) score {
-  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  
-  if([[userDefaults objectForKey:@"highscore"] integerValue] < score){ //highscore was beaten
-    [userDefaults setObject:@(score) forKey:@"highscore"];
-  }
-  
-  [userDefaults setObject:@(score) forKey:@"score"];
-  [userDefaults synchronize];
-  
-  
-}
-
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  
+  GameOverController *destination = (GameOverController *)[segue destinationViewController];
+  destination.score = self.score;
+  
   //iAds
-  UIViewController *destination = [segue destinationViewController];
   destination.interstitialPresentationPolicy = ADInterstitialPresentationPolicyAutomatic;
 }
 

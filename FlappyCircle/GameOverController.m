@@ -12,9 +12,8 @@
 
 @implementation GameOverController
 
-- (void)viewWillLayoutSubviews
-{
-  [super viewWillLayoutSubviews];
+-(void)viewDidLoad {
+  [super viewDidLoad];
   
   NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
   [notifier addObserver:self selector:@selector(segueToGameplay) name:@"FCRetry" object:nil];
@@ -25,7 +24,7 @@
   skView.showsNodeCount = NO;
   
   // Create and configure the scene.
-  SKScene * scene = [GameOver sceneWithSize:skView.bounds.size];
+  SKScene* scene = [[GameOver alloc] initWithSize:skView.bounds.size score:self.score];
   scene.scaleMode = SKSceneScaleModeAspectFill;
   
   // Present the scene.

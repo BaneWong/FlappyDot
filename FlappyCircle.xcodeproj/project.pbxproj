@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E3536FE18C374DF00F19797 /* highscore.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E3536F518C374DF00F19797 /* highscore.wav */; };
 		6E6B7C4618B4407C00E57DD3 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAE8F2818B2BB9600B90B45 /* iAd.framework */; };
 		6E7E5D0418B2AB51005CAC40 /* circleDie.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E7E5D0318B2AB51005CAC40 /* circleDie.wav */; };
 		6E7E5D0718B2B12F005CAC40 /* GameOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E5D0618B2B12F005CAC40 /* GameOverController.m */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E3536F518C374DF00F19797 /* highscore.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = highscore.wav; sourceTree = "<group>"; };
 		6E7E5D0318B2AB51005CAC40 /* circleDie.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = circleDie.wav; sourceTree = "<group>"; };
 		6E7E5D0518B2B12F005CAC40 /* GameOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverController.h; sourceTree = "<group>"; };
 		6E7E5D0618B2B12F005CAC40 /* GameOverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverController.m; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		6E7E5D0218B2AB42005CAC40 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				6E3536F518C374DF00F19797 /* highscore.wav */,
 				6EAE8F4618B2E52300B90B45 /* jump.wav */,
 				6EAE8F4718B2E52300B90B45 /* scorePoint.wav */,
 				6E7E5D0318B2AB51005CAC40 /* circleDie.wav */,
@@ -356,6 +359,7 @@
 				6E7E5D0418B2AB51005CAC40 /* circleDie.wav in Resources */,
 				6EA0E30118B16110007A90A3 /* Images.xcassets in Resources */,
 				6EAE8F4D18B2E64500B90B45 /* circle@2x.png in Resources */,
+				6E3536FE18C374DF00F19797 /* highscore.wav in Resources */,
 				6EAE8F4918B2E52300B90B45 /* scorePoint.wav in Resources */,
 				6EA0E32918B16D00007A90A3 /* Minecraftia.ttf in Resources */,
 				6EA0E2F718B16110007A90A3 /* Main.storyboard in Resources */,

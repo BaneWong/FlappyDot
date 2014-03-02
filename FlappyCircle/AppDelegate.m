@@ -19,8 +19,8 @@
 
   //scores
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  if(![userDefaults objectForKey:@"highscore"]) {
-    [userDefaults setObject:@(0) forKey:@"highscore"];
+  if(![userDefaults integerForKey:@"highscore"]) {
+    [userDefaults setInteger:0 forKey:@"highscore"];
   }
   return YES;
 }

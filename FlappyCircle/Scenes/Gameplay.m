@@ -84,7 +84,7 @@
   [self addChild:_highscoreLabel];
   
   _titleLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _titleLabel.text = @"Flappy Circle";
+  _titleLabel.text = @"Flappy Dot";
   _titleLabel.fontColor = [SKColor blackColor];
   _titleLabel.fontSize = 30;
   _titleLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 100);

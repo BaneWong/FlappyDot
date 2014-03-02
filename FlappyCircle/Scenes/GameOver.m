@@ -11,21 +11,29 @@
 @implementation GameOver {
   SKLabelNode *_retryLabel;
   SKLabelNode *_menuLabel;
+  SKLabelNode *_scoreLabel;
+  SKLabelNode *_highscoreLabel;
+  SKAction *_playPointSound;
+  SKAction *_playHighscoreSound;
+  int _score;
+  int _oldHighscore;
 }
 
-- (id)initWithSize:(CGSize)size {
+- (id)initWithSize:(CGSize)size score:(int)score{
     if (self = [super initWithSize:size]) {
       self.backgroundColor = [SKColor whiteColor];
+      _score = score;
+      _playPointSound = [SKAction playSoundFileNamed:@"scorePoint.wav" waitForCompletion:NO];
+      _playHighscoreSound = [SKAction playSoundFileNamed:@"highscore.wav" waitForCompletion:NO];
+      [self setScores];
       [self setupLabels];
+      [self performSelector:@selector(animateLabels) withObject:self afterDelay:0.5];
       
     }
     return self;
 }
 
 - (void) setupLabels {
-  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  int currentScore = [[userDefaults objectForKey:@"score"] integerValue];
-  int highscore = [[userDefaults objectForKey:@"highscore"] integerValue];
   
   SKLabelNode *_infoLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
   _infoLabel.text = @"Game Over";
@@ -34,19 +42,19 @@
   _infoLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 100);
   [self addChild:_infoLabel];
   
-  SKLabelNode *_scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", currentScore];
+  _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
+  _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", 0];
   _scoreLabel.fontColor = [SKColor blackColor];
   _scoreLabel.fontSize = 18;
   _scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 160);
   [self addChild:_scoreLabel];
   
-  SKLabelNode *_recordLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _recordLabel.text = [NSString stringWithFormat:@"Best: %i", highscore];
-  _recordLabel.fontColor = [SKColor redColor];
-  _recordLabel.fontSize = 18;
-  _recordLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 200);
-  [self addChild:_recordLabel];
+  _highscoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
+  _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", _oldHighscore];
+  _highscoreLabel.fontColor = [SKColor redColor];
+  _highscoreLabel.fontSize = 18;
+  _highscoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 200);
+  [self addChild:_highscoreLabel];
   
   _retryLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
   _retryLabel.name = @"retryButton";
@@ -55,12 +63,52 @@
   _retryLabel.fontSize = 20;
   _retryLabel.position = CGPointMake(CGRectGetMidX(self.frame), 90);
   [self addChild:_retryLabel];
-  
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   NSNotificationCenter *notifier = [NSNotificationCenter defaultCenter];
   [notifier postNotificationName:@"FCRetry" object:self userInfo:nil];
+}
+
+- (void) animateLabels {
+  int waitProportion = 20;
+  
+  for(int i=1; i<=_score; i++){
+    [self runAction:[SKAction sequence:@[
+   [SKAction waitForDuration: (float)i/waitProportion],
+    [SKAction runBlock:^{
+      _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", i];
+      [self runAction:_playPointSound];
+      if(_oldHighscore < i) {
+        _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", i];
+        if(_oldHighscore == i - 1){
+          [_highscoreLabel runAction:[SKAction scaleTo:1.2 duration:0.1]];
+          [self runAction:_playHighscoreSound];
+        }
+        
+        if(_score == i) {
+          [_highscoreLabel runAction:[SKAction sequence:@[
+            [SKAction waitForDuration:0.1],
+            [SKAction scaleTo:1 duration:0.1]
+          ]]];
+        }
+      }
+    }]]]];
+  }
+  
+  
+}
+
+
+- (void) setScores {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  _oldHighscore = [userDefaults integerForKey:@"highscore"];
+  
+  if([userDefaults integerForKey:@"highscore"] < _score){ //highscore was beaten
+    [userDefaults setInteger:_score forKey:@"highscore"];
+  }
+  
+  [userDefaults synchronize];
 }
 
 

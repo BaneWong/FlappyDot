@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8213EE3F-DB25-4EB7-9178-5F73795DE99E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FlappyCircle</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F33FC003-A7CD-434D-B04B-AC3A3573F1A4</key>
+		<string>ssh://github.com/pawurb/FlappyCircle.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FlappyCircle.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F33FC003-A7CD-434D-B04B-AC3A3573F1A4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/pawurb/FlappyCircle.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F33FC003-A7CD-434D-B04B-AC3A3573F1A4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F33FC003-A7CD-434D-B04B-AC3A3573F1A4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FlappyCircle</string>
+		</dict>
+	</array>
+</dict>
+</plist>

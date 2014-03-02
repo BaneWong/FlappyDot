@@ -10,6 +10,6 @@
 
 @interface GameOver : SKScene
 
-- (id)initWithSize:(CGSize)size;
+- (id)initWithSize:(CGSize)size score:(int)score;
 
 @end
