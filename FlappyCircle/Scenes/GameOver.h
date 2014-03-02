@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+
 @interface GameOver : SKScene
 
 - (id)initWithSize:(CGSize)size score:(int)score;

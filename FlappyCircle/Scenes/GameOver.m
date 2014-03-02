@@ -43,14 +43,14 @@
   [self addChild:_infoLabel];
   
   _scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", 0];
+  _scoreLabel.text = @"Score:  0";
   _scoreLabel.fontColor = [SKColor blackColor];
   _scoreLabel.fontSize = 18;
   _scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 160);
   [self addChild:_scoreLabel];
   
   _highscoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Minecraftia"];
-  _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", _oldHighscore];
+  _highscoreLabel.text = [NSString stringWithFormat:@"Best: %2i", _oldHighscore];
   _highscoreLabel.fontColor = [SKColor redColor];
   _highscoreLabel.fontSize = 18;
   _highscoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height - 200);
@@ -62,6 +62,7 @@
   _retryLabel.fontColor = [SKColor redColor];
   _retryLabel.fontSize = 20;
   _retryLabel.position = CGPointMake(CGRectGetMidX(self.frame), 90);
+  [_retryLabel runAction:[SKAction fadeOutWithDuration:0]];
   [self addChild:_retryLabel];
 }
 
@@ -72,15 +73,18 @@
 
 - (void) animateLabels {
   int waitProportion = 20;
+  if(_score==0){
+    [self fadeInRetryLabel];
+  }
   
   for(int i=1; i<=_score; i++){
     [self runAction:[SKAction sequence:@[
    [SKAction waitForDuration: (float)i/waitProportion],
     [SKAction runBlock:^{
-      _scoreLabel.text = [NSString stringWithFormat:@"Score: %i", i];
+      _scoreLabel.text = [NSString stringWithFormat:@"Score: %2i", i];
       [self runAction:_playPointSound];
       if(_oldHighscore < i) {
-        _highscoreLabel.text = [NSString stringWithFormat:@"Best: %i", i];
+        _highscoreLabel.text = [NSString stringWithFormat:@"Best: %2i", i];
         if(_oldHighscore == i - 1){
           [_highscoreLabel runAction:[SKAction scaleTo:1.2 duration:0.1]];
           [self runAction:_playHighscoreSound];
@@ -94,9 +98,15 @@
         }
       }
     }]]]];
+    
+    if(i==_score) {
+      [self fadeInRetryLabel];
+    }
   }
-  
-  
+}
+
+- (void) fadeInRetryLabel {
+  [_retryLabel runAction:[SKAction fadeInWithDuration:0.3]];
 }
 
 

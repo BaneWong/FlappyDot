@@ -45,7 +45,6 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  
   GameOverController *destination = (GameOverController *)[segue destinationViewController];
   destination.score = self.score;
   
