@@ -1,4 +1,4 @@
-## Flappy Circle
+## Flappy Dot
 
 Features:
   - a lot of tapping
